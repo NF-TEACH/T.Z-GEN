@@ -12,14 +12,7 @@
 - תמיכה מלאה ב-RTL (עברית)
 - רספונסיבי למובייל
 
-## התקנה ב-GitHub Pages
 
-1. העלו את כל הקבצים למאגר GitHub
-2. עברו ל-Settings > Pages
-3. בחרו את ה-branch הראשי ותיקיית root
-4. שמרו והמתינו מספר דקות
-
-האתר יהיה זמין בכתובת: `https://username.github.io/repository-name`
 
 ## קבצים
 
