@@ -87,6 +87,19 @@ function downloadSequences() {
 }
 
 function generateRandomID() {
-  // Placeholder for the actual implementation of generateRandomID
-  return "1234567890"
+  if (typeof generateRandomSequence === "function") {
+    return generateRandomSequence()
+  }
+
+  const digits = []
+  for (let i = 0; i < 8; i++) {
+    digits.push(Math.floor(Math.random() * 10))
+  }
+
+  if (typeof calculateCheckDigit === "function") {
+    const { checkDigit } = calculateCheckDigit(digits)
+    return digits.join("") + checkDigit
+  }
+
+  return digits.join("")
 }
