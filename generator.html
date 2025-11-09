@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל מספר ת.ז - IDGen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">IDGen</a>
+                    <nav class="nav">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html" class="active">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </nav>
+                    <button id="themeToggle" class="theme-toggle" aria-label="החלף מצב תצוגה">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main page-content">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-icon secondary">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                            <line x1="8" y1="6" x2="16" y2="6"/>
+                            <line x1="8" y1="10" x2="16" y2="10"/>
+                            <line x1="8" y1="14" x2="12" y2="14"/>
+                        </svg>
+                    </div>
+                    <h1 class="page-title">מחולל מספר ת.ז</h1>
+                    <p class="page-description">צרו מספר תעודת זהות תקין אחד לבדיקות</p>
+                </div>
+
+                <div class="card center">
+                    <div class="card-body">
+                        <button id="generateBtn" class="btn btn-primary btn-lg btn-xl">צור מספר ת.ז חדש</button>
+                        <div id="generatorResult" class="hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">IDGen</div>
+                        <p class="footer-text">כלי לימודי לחקר ספרת ביקורת בת.ז ישראלית</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 IDGen. כל הזכויות שמורות.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="check-digit.js"></script>
+    <script src="generator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

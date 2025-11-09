@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אלגוריתם ספרת ביקורת בת.ז - IDGen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">IDGen</a>
+                    <nav class="nav">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html" class="active">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </nav>
+                    <button id="themeToggle" class="theme-toggle" aria-label="החלף מצב תצוגה">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main page-content">
+            <div class="container wider">
+                <div class="page-header">
+                    <div class="page-icon success">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <h1 class="page-title">אלגוריתם ספרת הביקורת בת.ז</h1>
+                    <p class="page-description">למדו כיצד פועל אלגוריתם לון (Luhn Algorithm) בתעודת זהות ישראלית</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">מה זו ספרת ביקורת בת.ז?</h2>
+                        <p class="text-lg">מספר תעודת זהות ישראלי מורכב מ-9 ספרות. הספרה התשיעית (האחרונה) היא ספרת ביקורת שמחושבת מ-8 הספרות הראשונות לפי אלגוריתם לון (Luhn Algorithm). תפקידה למנוע טעויות הקלדה ולוודא שהמספר תקין.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">איך מחשבים ספרת ביקורת בת.ז?</h2>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">מתחילים ב-8 ספרות ראשונות</h3>
+                                    <p class="step-text">למשל: 1-2-3-4-5-6-7-8 (מספר ת.ז לדוגמה)</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">מקצים משקל לכל ספרה</h3>
+                                    <p class="step-text">לסירוגין לפי דפוס 1-2-1-2: הראשונה ×1, השנייה ×2, השלישית ×1, הרביעית ×2 וכן הלאה</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">מכפילים כל ספרה במשקלה</h3>
+                                    <p class="step-text">לדוגמה: 1×1=1, 2×2=4, 3×1=3, 4×2=8</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">מצמצמים תוצאות דו-ספרתיות</h3>
+                                    <p class="step-text">אם התוצאה גדולה מ-9, מחברים את ספרותיה. למשל: 14 → 1+4 = 5</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">מסכמים את כל הערכים</h3>
+                                    <p class="step-text">מחברים את כל התוצאות שקיבלנו לסכום אחד</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">6</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">מחפשים את הכפולה הקרובה של 10</h3>
+                                    <p class="step-text">מוצפים את המספר הקטן ביותר שמתחלק ב-10 וגדול או שווה לסכום</p>
+                                </div>
+                            </div>
+                            <div class="step success">
+                                <div class="step-number">✓</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">ספרת הביקורת היא ההפרש</h3>
+                                    <p class="step-text">ההפרש בין הכפולה של 10 לבין הסכום. זו הספרה התשיעית של מספר הת.ז</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card example-card">
+                    <div class="card-body">
+                        <h2 class="card-title">דוגמה מלאה - מספר ת.ז: 123456782</h2>
+                        <p class="text-lg">נחשב את ספרת הביקורת עבור 8 הספרות הראשונות: <span class="mono bold">1-2-3-4-5-6-7-8</span></p>
+                        <div class="example-calc">
+                            <div class="calc-line">1 × 1 = 1</div>
+                            <div class="calc-line">2 × 2 = 4</div>
+                            <div class="calc-line">3 × 1 = 3</div>
+                            <div class="calc-line">4 × 2 = 8</div>
+                            <div class="calc-line">5 × 1 = 5</div>
+                            <div class="calc-line">6 × 2 = 12 → 1+2 = 3</div>
+                            <div class="calc-line">7 × 1 = 7</div>
+                            <div class="calc-line">8 × 2 = 16 → 1+6 = 7</div>
+                            <div class="calc-line total">סכום: 1+4+3+8+5+3+7+7 = 38</div>
+                        </div>
+                        <p class="text-lg">הכפולה הקרובה של 10 היא 40</p>
+                        <p class="text-lg">ספרת הביקורת: 40 - 38 = <span class="primary bold large">2</span></p>
+                        <p class="text-lg">לכן מספר הת.ז התקין הוא: <span class="mono bold xlarge">12345678<span class="primary">2</span></span></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">למה זה עובד?</h2>
+                        <p class="text-lg">אלגוריתם לון הוא שיטה מתמטית פשוטה ויעילה שמזהה כמעט כל טעות הקלדה שכיחה. המשקלים המתחלפים (1-2-1-2) יוצרים מערכת שבה החלפת ספרות או טעות בהקלדה מיידית משנה את התוצאה ונתפסת. זו אותה שיטה המשמשת במספרי כרטיסי אשראי בעולם כולו.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">IDGen</div>
+                        <p class="footer-text">כלי לימודי לחקר ספרת ביקורת בת.ז ישראלית</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 IDGen. כל הזכויות שמורות.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

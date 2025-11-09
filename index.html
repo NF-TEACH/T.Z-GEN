@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated title for Israeli ID numbers -->
+    <title>IDGen - מחולל ובודק מספרי תעודות זהות לבדיקות</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">IDGen</a>
+                    <nav class="nav">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </nav>
+                    <button id="themeToggle" class="theme-toggle" aria-label="החלף מצב תצוגה">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="4" y1="9" x2="20" y2="9"/>
+                                <line x1="4" y1="15" x2="20" y2="15"/>
+                                <line x1="10" y1="3" x2="8" y2="21"/>
+                                <line x1="16" y1="3" x2="14" y2="21"/>
+                            </svg>
+                            <span>כלי לימודי מתמטי</span>
+                        </div>
+                        <!-- Updated hero content for Israeli ID focus -->
+                        <h1 class="hero-title">ברוכים הבאים ל־IDGen</h1>
+                        <p class="hero-subtitle">מחולל מספרי ת.ז תקינים לבדיקות</p>
+                        <p class="hero-description">בדקו או צרו מספרי תעודת זהות ישראליים תקינים למטרות בדיקה ופיתוח. גלו איך מחשבים ספרת ביקורת של ת.ז ולמה זה עובד.</p>
+                        <div class="hero-actions">
+                            <a href="validator.html" class="btn btn-primary btn-lg">התחל עכשיו</a>
+                            <a href="algorithm.html" class="btn btn-outline btn-lg">למד על האלגוריתם</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">מה תוכלו לעשות כאן?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon primary">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <!-- Updated feature descriptions for Israeli ID -->
+                            <h3 class="feature-title">בודק תקינות ת.ז</h3>
+                            <p class="feature-description">הזינו מספר תעודת זהות ובדקו מיידית אם ספרת הביקורת שלו תקינה. קבלו הסבר מפורט על החישוב.</p>
+                            <a href="validator.html" class="feature-link">בדוק עכשיו ←</a>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon secondary">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                                    <line x1="8" y1="6" x2="16" y2="6"/>
+                                    <line x1="8" y1="10" x2="16" y2="10"/>
+                                    <line x1="8" y1="14" x2="12" y2="14"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">מחולל מספרי ת.ז</h3>
+                            <p class="feature-description">צרו מספרי תעודת זהות תקינים לבדיקות בלחיצה אחת. קבלו מספר בודד או רשימה שלמה.</p>
+                            <a href="generator.html" class="feature-link">צור מספר ת.ז ←</a>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon success">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">הסבר מפורט</h3>
+                            <p class="feature-description">למדו את עקרון ספרת הביקורת של תעודת זהות ישראלית צעד אחר צעד, עם דוגמאות חזותיות.</p>
+                            <a href="algorithm.html" class="feature-link">למד עכשיו ←</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <div class="container">
+                    <div class="info-content">
+                        <!-- Updated info section for Israeli ID context -->
+                        <h2 class="section-title">איך עובד מספר ת.ז ישראלי?</h2>
+                        <p class="info-text">מספר תעודת זהות ישראלי מורכב מ-9 ספרות, כאשר הספרה האחרונה היא ספרת ביקורת. ספרת הביקורת מחושבת לפי אלגוריתם לון (Luhn Algorithm) – שיטה מתמטית פשוטה שמזהה טעויות הקלדה או שיבושים בנתונים. זו אותה שיטה המשמשת גם במספרי כרטיסי אשראי בעולם.</p>
+                        <a href="algorithm.html" class="btn btn-primary btn-lg">קרא עוד על השיטה</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">IDGen</div>
+                        <!-- Updated footer text -->
+                        <p class="footer-text">כלי לימודי לחקר ספרת ביקורת בת.ז ישראלית</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 IDGen. כל הזכויות שמורות.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

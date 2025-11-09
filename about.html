@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות - IDGen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">IDGen</a>
+                    <nav class="nav">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html" class="active">אודות</a>
+                    </nav>
+                    <button id="themeToggle" class="theme-toggle" aria-label="החלף מצב תצוגה">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main page-content">
+            <div class="container wider">
+                <div class="page-header">
+                    <div class="page-icon primary">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </div>
+                    <h1 class="page-title">אודות IDGen</h1>
+                    <p class="page-description">כלי חינמי ללימוד וחקר עקרונות מתמטיים</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">מטרת האתר</h2>
+                        <p class="text-lg">IDGen נבנה כדי להמחיש איך עובד אלגוריתם ספרת הביקורת בתעודת זהות ישראלית. האתר מאפשר למפתחים, סטודנטים וחובבי מתמטיקה להבין כיצד מספרי ת.ז נבדקים ומאומתים באמצעות אלגוריתם לון (Luhn). כל המספרים באתר הם אקראיים לחלוטין ומיועדים למטרות בדיקה ופיתוח בלבד.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">למה ספרת ביקורת בת.ז?</h2>
+                        <p class="text-lg">מספר תעודת זהות ישראלי משתמש באלגוריתם לון – שיטה מתמטית שפותחה ב-1954 על ידי הנס פיטר לון. השיטה מזהה כמעט כל טעות הקלדה שכיחה: החלפת ספרות, הקשה כפולה, דילוג על ספרה ועוד. זו אותה שיטה המשמשת במערכות ברחבי העולם כמו מספרי כרטיסי אשראי, מספרי IMEI בטלפונים ניידים ועוד.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">שימוש מומלץ</h2>
+                        <p class="text-lg">האתר מיועד למפתחי תוכנה הזקוקים למספרי ת.ז תקינים לבדיקות (testing), סטודנטים שלומדים אלגוריתמים, ומורים המסבירים עקרונות מתמטיים. המספרים שנוצרים כאן הם סינטטיים לחלוטין ואינם שייכים לאנשים אמיתיים.</p>
+                    </div>
+                </div>
+
+                <div class="center">
+                    <a href="algorithm.html" class="btn btn-primary btn-lg">התחל ללמוד עכשיו</a>
+                </div>
+
+                <div class="disclaimer">
+                    <p><strong>הצהרה חשובה:</strong></p>
+                    <p>האתר אינו קשור לשום גוף ממשלתי או מוסד רשמי בישראל.</p>
+                    <p>כל מספרי הת.ז המופקים הם אקראיים לחלוטין ואינם מייצגים אנשים אמיתיים.</p>
+                    <p>האתר מיועד למטרות חינוכיות, פיתוח ובדיקות בלבד.</p>
+                    <p>אין לעשות שימוש במספרים אלו למטרות הונאה, זיוף או כל פעילות בלתי חוקית.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">IDGen</div>
+                        <p class="footer-text">כלי לימודי לחקר ספרת ביקורת בת.ז ישראלית</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 IDGen. כל הזכויות שמורות.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
