@@ -83,7 +83,15 @@ function downloadSequences() {
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
 
-  alert("הקובץ הורד בהצלחה!")
+  if (typeof window.showAppAlert === "function") {
+    window.showAppAlert("הקובץ הורד בהצלחה ונשמר בתיקיית ההורדות.", {
+      title: "ההורדה הושלמה",
+      type: "success",
+      confirmText: "מעולה",
+    })
+  } else {
+    window.alert("הקובץ הורד בהצלחה!")
+  }
 }
 
 function generateRandomID() {
