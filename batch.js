@@ -83,10 +83,31 @@ function downloadSequences() {
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
 
-  alert("הקובץ הורד בהצלחה!")
+  if (typeof window.showAppAlert === "function") {
+    window.showAppAlert("הקובץ הורד בהצלחה ונשמר בתיקיית ההורדות.", {
+      title: "ההורדה הושלמה",
+      type: "success",
+      confirmText: "מעולה",
+    })
+  } else {
+    window.alert("הקובץ הורד בהצלחה!")
+  }
 }
 
 function generateRandomID() {
-  // Placeholder for the actual implementation of generateRandomID
-  return "1234567890"
+  if (typeof generateRandomSequence === "function") {
+    return generateRandomSequence()
+  }
+
+  const digits = []
+  for (let i = 0; i < 8; i++) {
+    digits.push(Math.floor(Math.random() * 10))
+  }
+
+  if (typeof calculateCheckDigit === "function") {
+    const { checkDigit } = calculateCheckDigit(digits)
+    return digits.join("") + checkDigit
+  }
+
+  return digits.join("")
 }
