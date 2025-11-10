@@ -5,9 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleValidate() {
     const value = input.value.trim()
-    if (!value) return
+    let validator = null
 
-    const result = validateSequence(value)
+    if (typeof window !== "undefined" && typeof window.validateSequence === "function") {
+      validator = window.validateSequence
+    } else if (typeof validateSequence === "function") {
+      validator = validateSequence
+    }
+    const result = validator
+      ? validator(value)
+      : {
+          isValid: false,
+          message: "אירעה שגיאה בעת בדיקת המספר. אנא נסו שוב.",
+        }
     displayValidatorResult(result)
   }
 
@@ -69,17 +79,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") handleValidate()
   })
 
-  function validateSequence(value) {
-    // Placeholder for the validateSequence function
-    return {
-      isValid: true,
-      message: "Sequence is valid",
-      calculation: {
-        steps: ["Step 1", "Step 2"],
-        sum: 10,
-        nextMultipleOfTen: 20,
-        checkDigit: 0,
-      },
-    }
-  }
 })
