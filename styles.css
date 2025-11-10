@@ -494,6 +494,112 @@ body {
   flex: 1;
 }
 
+/* Modal */
+.app-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.app-modal.hidden {
+  display: none;
+}
+
+.app-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.app-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.app-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(420px, 100%);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2);
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.app-modal.open .app-modal-dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.app-modal-body {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-modal-text {
+  flex: 1;
+}
+
+.app-modal-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.app-modal-dialog[data-type="success"] .app-modal-icon {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.app-modal-dialog[data-type="error"] .app-modal-icon {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+.app-modal-dialog[data-type="info"] .app-modal-icon {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.app-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.app-modal-message {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.app-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app-modal-confirm {
+  min-width: 120px;
+}
+
 /* Calculation Display */
 .calculation {
   margin-top: 1.5rem;

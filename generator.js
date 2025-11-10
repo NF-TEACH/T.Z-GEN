@@ -89,7 +89,28 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    alert("הרצף הועתק ללוח!")
-  })
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      if (typeof window.showAppAlert === "function") {
+        window.showAppAlert("הרצף הועתק ללוח!", {
+          title: "העתקה הושלמה",
+          type: "success",
+          confirmText: "המשך",
+        })
+      } else {
+        window.alert("הרצף הועתק ללוח!")
+      }
+    })
+    .catch(() => {
+      if (typeof window.showAppAlert === "function") {
+        window.showAppAlert("לא הצלחנו להעתיק את המספר. נסו שוב בעוד רגע.", {
+          title: "שגיאת העתקה",
+          type: "error",
+          confirmText: "בסדר",
+        })
+      } else {
+        window.alert("לא הצלחנו להעתיק את המספר. נסו שוב.")
+      }
+    })
 }
