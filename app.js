@@ -14,6 +14,194 @@ function toggleTheme() {
 // Initialize theme on page load
 initTheme()
 
+// Accessibility Menu
+const ACCESSIBILITY_PREFS_KEY = "accessibilityPrefs"
+
+const defaultAccessibilityPrefs = {
+  highContrast: false,
+  largeText: false,
+  highlightLinks: false,
+}
+
+const accessibilityState = {
+  trigger: null,
+  panel: null,
+  close: null,
+  options: null,
+  previousFocus: null,
+  isOpen: false,
+  prefs: { ...defaultAccessibilityPrefs },
+}
+
+accessibilityState.prefs = loadAccessibilityPrefs()
+applyAccessibilityPrefs()
+
+function loadAccessibilityPrefs() {
+  try {
+    const stored = localStorage.getItem(ACCESSIBILITY_PREFS_KEY)
+    if (!stored) return { ...defaultAccessibilityPrefs }
+    const parsed = JSON.parse(stored)
+    return { ...defaultAccessibilityPrefs, ...parsed }
+  } catch (error) {
+    console.warn("שגיאה בטעינת העדפות נגישות", error)
+    return { ...defaultAccessibilityPrefs }
+  }
+}
+
+function saveAccessibilityPrefs() {
+  try {
+    localStorage.setItem(ACCESSIBILITY_PREFS_KEY, JSON.stringify(accessibilityState.prefs))
+  } catch (error) {
+    console.warn("שגיאה בשמירת העדפות נגישות", error)
+  }
+}
+
+function applyAccessibilityPrefs() {
+  const root = document.documentElement
+  const body = document.body
+
+  const { highContrast, largeText, highlightLinks } = accessibilityState.prefs
+
+  root.classList.toggle("access-high-contrast", Boolean(highContrast))
+  if (body) {
+    body.classList.toggle("access-text-large", Boolean(largeText))
+    body.classList.toggle("access-highlight-links", Boolean(highlightLinks))
+  }
+
+  if (accessibilityState.options) {
+    accessibilityState.options.forEach((button) => {
+      const feature = button.getAttribute("data-feature")
+      const isActive = Boolean(accessibilityState.prefs[feature])
+      button.setAttribute("aria-pressed", String(isActive))
+      button.classList.toggle("is-active", isActive)
+    })
+  }
+}
+
+function toggleAccessibilityPanel(force) {
+  const { panel, trigger } = accessibilityState
+  if (!panel || !trigger) return
+
+  const shouldOpen = typeof force === "boolean" ? force : !accessibilityState.isOpen
+
+  if (shouldOpen === accessibilityState.isOpen) return
+
+  accessibilityState.isOpen = shouldOpen
+
+  panel.classList.toggle("open", shouldOpen)
+  panel.setAttribute("aria-hidden", String(!shouldOpen))
+  trigger.setAttribute("aria-expanded", String(shouldOpen))
+
+  if (shouldOpen) {
+    accessibilityState.previousFocus = document.activeElement
+    panel.focus()
+    document.addEventListener("keydown", handleAccessibilityKeyDown)
+  } else {
+    document.removeEventListener("keydown", handleAccessibilityKeyDown)
+    if (accessibilityState.previousFocus && typeof accessibilityState.previousFocus.focus === "function") {
+      accessibilityState.previousFocus.focus()
+    } else {
+      trigger.focus()
+    }
+    accessibilityState.previousFocus = null
+  }
+}
+
+function handleAccessibilityKeyDown(event) {
+  if (event.key === "Escape") {
+    toggleAccessibilityPanel(false)
+  }
+}
+
+function handleAccessibilityToggle(event) {
+  const button = event.target.closest("[data-feature]")
+  if (!button) return
+
+  const feature = button.getAttribute("data-feature")
+  if (!(feature in accessibilityState.prefs)) return
+
+  accessibilityState.prefs[feature] = !accessibilityState.prefs[feature]
+  saveAccessibilityPrefs()
+  applyAccessibilityPrefs()
+}
+
+function ensureAccessibilityMenu() {
+  if (accessibilityState.trigger && accessibilityState.panel) {
+    return accessibilityState
+  }
+
+  const trigger = document.createElement("button")
+  trigger.type = "button"
+  trigger.className = "accessibility-launcher"
+  trigger.id = "accessibilityToggle"
+  trigger.setAttribute("aria-label", "תפריט נגישות")
+  trigger.setAttribute("aria-haspopup", "dialog")
+  trigger.setAttribute("aria-expanded", "false")
+  trigger.innerHTML = `
+    <span aria-hidden="true" class="accessibility-launcher-icon">♿</span>
+    <span class="accessibility-launcher-text">נגישות</span>
+  `
+
+  const panel = document.createElement("div")
+  panel.className = "accessibility-panel"
+  panel.id = "accessibilityPanel"
+  panel.setAttribute("role", "dialog")
+  panel.setAttribute("aria-modal", "false")
+  panel.setAttribute("aria-hidden", "true")
+  panel.setAttribute("tabindex", "-1")
+  panel.setAttribute("aria-labelledby", "accessibilityPanelTitle")
+  panel.innerHTML = `
+    <div class="accessibility-panel-header">
+      <h2 id="accessibilityPanelTitle">תפריט נגישות</h2>
+      <button type="button" class="accessibility-panel-close" aria-label="סגור תפריט נגישות">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="accessibility-panel-body">
+      <p class="accessibility-panel-description">בחרו את ההגדרה המתאימה לכם:</p>
+      <div class="accessibility-panel-options">
+        <button type="button" class="accessibility-option" data-feature="highContrast" aria-pressed="false">
+          <span class="accessibility-option-title">קונטרסט גבוה</span>
+          <span class="accessibility-option-desc">העצמת צבעים וחדות הטקסט</span>
+        </button>
+        <button type="button" class="accessibility-option" data-feature="largeText" aria-pressed="false">
+          <span class="accessibility-option-title">הגדלת טקסט</span>
+          <span class="accessibility-option-desc">הגדלת הטקסט באתר לכ-115%</span>
+        </button>
+        <button type="button" class="accessibility-option" data-feature="highlightLinks" aria-pressed="false">
+          <span class="accessibility-option-title">הדגשת קישורים</span>
+          <span class="accessibility-option-desc">הוספת מסגרת והדגשה לכל הקישורים</span>
+        </button>
+      </div>
+    </div>
+  `
+
+  document.body.appendChild(trigger)
+  document.body.appendChild(panel)
+
+  accessibilityState.trigger = trigger
+  accessibilityState.panel = panel
+  accessibilityState.close = panel.querySelector(".accessibility-panel-close")
+  accessibilityState.options = Array.from(panel.querySelectorAll(".accessibility-option"))
+
+  trigger.addEventListener("click", () => toggleAccessibilityPanel())
+  accessibilityState.close.addEventListener("click", () => toggleAccessibilityPanel(false))
+  panel.addEventListener("click", handleAccessibilityToggle)
+
+  document.addEventListener("click", (event) => {
+    if (!accessibilityState.isOpen) return
+    if (
+      event.target === accessibilityState.trigger ||
+      accessibilityState.panel.contains(event.target)
+    ) {
+      return
+    }
+    toggleAccessibilityPanel(false)
+  })
+
+  return accessibilityState
+}
+
 // Modal Management
 const modalState = {
   container: null,
@@ -138,4 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   ensureModal()
+  ensureAccessibilityMenu()
+  applyAccessibilityPrefs()
 })

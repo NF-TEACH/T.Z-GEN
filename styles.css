@@ -44,6 +44,28 @@
   --shadow-md: rgba(0, 0, 0, 0.4);
 }
 
+:root.access-high-contrast {
+  --bg-primary: #0b0b0b;
+  --bg-secondary: #141414;
+  --bg-muted: #1f1f1f;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #cccccc;
+  --border: #2e2e2e;
+  --primary: #ffb400;
+  --primary-hover: #ffcf52;
+  --primary-light: rgba(255, 180, 0, 0.25);
+  --secondary: #2dd4bf;
+  --secondary-hover: #5eead4;
+  --secondary-light: rgba(45, 212, 191, 0.25);
+  --success: #22d3ee;
+  --success-light: rgba(34, 211, 238, 0.25);
+  --error: #f97316;
+  --error-light: rgba(249, 115, 22, 0.25);
+  --shadow: rgba(0, 0, 0, 0.8);
+  --shadow-md: rgba(0, 0, 0, 0.85);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -57,6 +79,22 @@ body {
   line-height: 1.6;
   direction: rtl;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.access-text-large {
+  font-size: 1.1rem;
+}
+
+body.access-highlight-links a,
+body.access-highlight-links a:visited {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+body.access-highlight-links a:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 3px;
 }
 
 .container {
@@ -145,6 +183,166 @@ body {
 
 [data-theme="dark"] .theme-toggle .moon-icon {
   display: block;
+}
+
+/* Accessibility Widget */
+.accessibility-launcher {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 15px 25px -20px var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.accessibility-launcher:hover,
+.accessibility-launcher:focus-visible {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 28px -22px var(--shadow-md);
+  outline: none;
+}
+
+.accessibility-launcher:focus-visible {
+  box-shadow: 0 0 0 3px var(--primary-light), 0 18px 28px -22px var(--shadow-md);
+}
+
+.accessibility-launcher-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.accessibility-launcher-text {
+  font-size: 0.95rem;
+}
+
+.accessibility-panel {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 1.5rem;
+  width: min(90vw, 320px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -25px var(--shadow-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 120;
+}
+
+.accessibility-panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.accessibility-panel:focus {
+  outline: none;
+}
+
+.accessibility-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.accessibility-panel-header h2 {
+  font-size: 1.1rem;
+}
+
+.accessibility-panel-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.25rem;
+}
+
+.accessibility-panel-close:hover,
+.accessibility-panel-close:focus-visible {
+  color: var(--primary);
+  outline: none;
+}
+
+.accessibility-panel-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.accessibility-panel-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.accessibility-option {
+  width: 100%;
+  text-align: right;
+  background: var(--bg-muted);
+  border: 1px solid transparent;
+  border-radius: 0.9rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  color: inherit;
+}
+
+.accessibility-option:hover,
+.accessibility-option:focus-visible {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  outline: none;
+}
+
+.accessibility-option.is-active {
+  border-color: var(--primary);
+  background: rgba(79, 122, 235, 0.15);
+}
+
+.accessibility-option-title {
+  font-weight: 600;
+}
+
+.accessibility-option-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .accessibility-launcher {
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .accessibility-panel {
+    left: 1rem;
+    bottom: 4.75rem;
+  }
 }
 
 /* Main Content */
