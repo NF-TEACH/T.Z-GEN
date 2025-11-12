@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הצהרת נגישות - IDGen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">IDGen</a>
+                    <nav class="nav">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                    </nav>
+                    <button id="themeToggle" class="theme-toggle" aria-label="החלף מצב תצוגה">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <section class="page-content">
+                <div class="container">
+                    <div class="page-header">
+                        <div class="page-icon primary">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h1 class="page-title">הצהרת נגישות</h1>
+                        <p class="page-description">התחייבותנו להנגשת האתר לכלל הציבור</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">מחויבות לנגישות</h2>
+                            <p class="text-lg">אנו ב-IDGen רואים חשיבות רבה בהנגשת האתר לכלל הציבור, לרבות אנשים עם מוגבלויות. אנו פועלים ליצירת חוויית שימוש שווה ונגישה לכולם, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, תשנ"ח-1998 ותקנות הנגישות לשירות (2013).</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">תקנים והנחיות</h2>
+                            <p class="text-lg">האתר הונגש בהתאם לתקן הישראלי ת"י 5568 (המבוסס על WCAG 2.0 ברמת AA), הכולל:</p>
+                            <ul style="margin-right: 2rem; margin-top: 1rem; line-height: 1.8;">
+                                <li>ניווט מלא באמצעות מקלדת בלבד</li>
+                                <li>תמיכה מלאה בקוראי מסך</li>
+                                <li>טקסט חלופי לכל התמונות והאייקונים</li>
+                                <li>ניגודיות צבעים מתאימה (לפחות 4.5:1)</li>
+                                <li>כותרות היררכיות תקינות (H1-H6)</li>
+                                <li>תוויות ARIA מתאימות לכל רכיב אינטראקטיבי</li>
+                                <li>קישורים בעלי משמעות וברורים</li>
+                                <li>שדות טפסים עם תוויות מתאימות</li>
+                                <li>מבנה עקבי וקריא בכל הדפים</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">כלי נגישות באתר</h2>
+                            <p class="text-lg">האתר כולל תפריט נגישות מתקדם המאפשר התאמה אישית של חוויית הגלישה:</p>
+                            <ul style="margin-right: 2rem; margin-top: 1rem; line-height: 1.8;">
+                                <li><strong>שינוי גודל טקסט</strong> - הגדלה והקטנה של הטקסט באתר (85%-150%)</li>
+                                <li><strong>שינוי ניגודיות</strong> - מצב רגיל, ניגודיות גבוהה או מהופכת</li>
+                                <li><strong>גווני אפור</strong> - המרת האתר לגווני אפור</li>
+                                <li><strong>הדגשת קישורים</strong> - הוספת מסגרת ברורה לכל הקישורים</li>
+                                <li><strong>גופן קריא</strong> - שימוש בגופן Arial הקריא</li>
+                                <li><strong>עצירת אנימציות</strong> - ביטול כל האנימציות והמעברים</li>
+                                <li><strong>סמן גדול</strong> - הגדלת סמן העכבר לנראות טובה יותר</li>
+                                <li><strong>איפוס הגדרות</strong> - חזרה למצב ברירת המחדל</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">אמצעי נגישות נוספים</h2>
+                            <ul style="margin-right: 2rem; line-height: 1.8;">
+                                <li>שפת התצוגה: עברית RTL מלאה</li>
+                                <li>תמיכה במקלדת: ניווט מלא עם Tab, Enter, Escape ומקשי חצים</li>
+                                <li>התאמה לקוראי מסך: NVDA, JAWS, VoiceOver</li>
+                                <li>עיצוב רספונסיבי: תמיכה מלאה במכשירים ניידים</li>
+                                <li>שמירת העדפות: ההגדרות נשמרות למבקרים חוזרים</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">תאריך עדכון ויישום</h2>
+                            <p class="text-lg">הצהרת נגישות זו עודכנה לאחרונה ב<strong>-דצמבר 2024</strong>.</p>
+                            <p class="text-lg" style="margin-top: 1rem;">האתר הונגש במלואו באמצעות תוסף yAccessibility ובשיטות נגישות מתקדמות.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">משוב ויצירת קשר</h2>
+                            <p class="text-lg">אם נתקלתם בבעיית נגישות או קושי בשימוש באתר, נשמח לשמוע ממכם:</p>
+                            <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--bg-muted); border-radius: 0.75rem;">
+                                <p style="margin-bottom: 0.75rem;"><strong>רכז נגישות:</strong> צוות IDGen</p>
+                                <p style="margin-bottom: 0.75rem;"><strong>דוא"ל:</strong> <a href="mailto:accessibility@idgen.example" style="color: var(--primary); text-decoration: underline;">accessibility@idgen.example</a></p>
+                                <p style="margin-bottom: 0.75rem;"><strong>טלפון:</strong> 03-1234567</p>
+                                <p style="margin-bottom: 0;"><strong>זמן תגובה:</strong> אנו מתחייבים לטפל בפניות תוך 5 ימי עבודה</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">המשך שיפור והתאמה</h2>
+                            <p class="text-lg">אנו ממשיכים לשפר את נגישות האתר באופן שוטף. אם יש לכם הצעות לשיפור או אם נתקלתם בבעיה כלשהי, נודה לכם מאוד אם תעדכנו אותנו.</p>
+                            <p class="text-lg" style="margin-top: 1rem;">אנו שמים דגש על אחריות מלאה להנגשת השירות ולמתן חוויית שימוש מיטבית לכלל המשתמשים.</p>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="index.html" class="btn btn-primary btn-lg">חזרה לדף הבית</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">IDGen</div>
+                        <p class="footer-text">כלי לימודי לחקר ספרת ביקורת בת.ז ישראלית</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="validator.html">בודק תקינות</a>
+                        <a href="generator.html">מחולל יחיד</a>
+                        <a href="batch.html">מחולל קבוצתי</a>
+                        <a href="algorithm.html">האלגוריתם</a>
+                        <a href="about.html">אודות</a>
+                        <a href="accessibility-statement.html"><strong>הצהרת נגישות</strong></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 IDGen. כל הזכויות שמורות.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="yaccessibility.min.js"></script>
+    <script>
+      // Initialize yAccessibility
+      yAccessibility({
+        language: 'he',
+        statement: '/accessibility-statement.html',
+        verticalPosition: 'bottom',
+        verticalOffset: 20,
+        horizontalPosition: 'left',
+        horizontalOffset: 20,
+        contentElementId: 'app'
+      });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
