@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Added accessibility widget styles -->
+    <link rel="stylesheet" href="accessibility-widget.css">
 </head>
 <body>
     <div id="app">
@@ -157,19 +159,8 @@
         </footer>
     </div>
 
-    <!-- Initialize yAccessibility widget before app.js -->
-    <script src="yaccessibility.min.js"></script>
-    <script>
-      yAccessibility({
-        language: 'he',
-        statement: '/accessibility-statement.html',
-        verticalPosition: 'bottom',
-        verticalOffset: 20,
-        horizontalPosition: 'left',
-        horizontalOffset: 20,
-        contentElementId: 'app'
-      });
-    </script>
+    <!-- Removed yAccessibility, added custom widget -->
     <script src="app.js"></script>
+    <script src="accessibility-widget.js"></script>
 </body>
 </html>

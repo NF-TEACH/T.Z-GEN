@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Added custom accessibility widget styles -->
+    <link rel="stylesheet" href="accessibility-widget.css">
 </head>
 <body>
     <div id="app">
@@ -88,14 +90,16 @@
                             <h2 class="card-title">כלי נגישות באתר</h2>
                             <p class="text-lg">האתר כולל תפריט נגישות מתקדם המאפשר התאמה אישית של חוויית הגלישה:</p>
                             <ul style="margin-right: 2rem; margin-top: 1rem; line-height: 1.8;">
-                                <li><strong>שינוי גודל טקסט</strong> - הגדלה והקטנה של הטקסט באתר (85%-150%)</li>
-                                <li><strong>שינוי ניגודיות</strong> - מצב רגיל, ניגודיות גבוהה או מהופכת</li>
-                                <li><strong>גווני אפור</strong> - המרת האתר לגווני אפור</li>
-                                <li><strong>הדגשת קישורים</strong> - הוספת מסגרת ברורה לכל הקישורים</li>
+                                <li><strong>ניגודיות צבעים</strong> - מצב ניגודיות גבוהה לנראות טובה יותר</li>
+                                <li><strong>ללא צבעים</strong> - המרת האתר לגווני אפור</li>
                                 <li><strong>גופן קריא</strong> - שימוש בגופן Arial הקריא</li>
-                                <li><strong>עצירת אנימציות</strong> - ביטול כל האנימציות והמעברים</li>
-                                <li><strong>סמן גדול</strong> - הגדלת סמן העכבר לנראות טובה יותר</li>
-                                <li><strong>איפוס הגדרות</strong> - חזרה למצב ברירת המחדל</li>
+                                <li><strong>הדגשת קישורים</strong> - הוספת מסגרת ברורה לכל הקישורים</li>
+                                <li><strong>הגדל גופן</strong> - הגדלת הטקסט באתר</li>
+                                <li><strong>הקטן גופן</strong> - הקטנת הטקסט באתר</li>
+                                <li><strong>תיאור לתמונות</strong> - הצגת תיאורי תמונות</li>
+                                <li><strong>סמן גדול</strong> - הגדלת סמן העכבר</li>
+                                <li><strong>ביטול הבהובים</strong> - עצירת אנימציות ומעברים</li>
+                                <li><strong>איפוס</strong> - חזרה למצב ברירת המחדל</li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +121,7 @@
                         <div class="card-body">
                             <h2 class="card-title">תאריך עדכון ויישום</h2>
                             <p class="text-lg">הצהרת נגישות זו עודכנה לאחרונה ב<strong>-דצמבר 2024</strong>.</p>
-                            <p class="text-lg" style="margin-top: 1rem;">האתר הונגש במלואו באמצעות תוסף yAccessibility ובשיטות נגישות מתקדמות.</p>
+                            <p class="text-lg" style="margin-top: 1rem;">האתר הונגש במלואו באמצעות תפריט נגישות מותאם אישית ובשיטות נגישות מתקדמות.</p>
                         </div>
                     </div>
 
@@ -173,19 +177,7 @@
         </footer>
     </div>
 
-    <script src="yaccessibility.min.js"></script>
-    <script>
-      // Initialize yAccessibility
-      yAccessibility({
-        language: 'he',
-        statement: '/accessibility-statement.html',
-        verticalPosition: 'bottom',
-        verticalOffset: 20,
-        horizontalPosition: 'left',
-        horizontalOffset: 20,
-        contentElementId: 'app'
-      });
-    </script>
     <script src="app.js"></script>
+    <script src="accessibility-widget.js"></script>
 </body>
 </html>

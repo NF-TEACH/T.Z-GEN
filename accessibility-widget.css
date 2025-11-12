@@ -1,0 +1,281 @@
+/* Accessibility Widget Styles */
+.accessibility-widget {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  font-family: "Alef", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.accessibility-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.accessibility-toggle:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
+}
+
+.accessibility-toggle:focus {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.accessibility-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.accessibility-menu.hidden {
+  display: none;
+}
+
+.accessibility-menu.open {
+  opacity: 1;
+}
+
+.accessibility-menu > * {
+  direction: rtl;
+}
+
+.accessibility-header {
+  background: #2563eb;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accessibility-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.accessibility-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.accessibility-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.accessibility-close:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.accessibility-menu.open .accessibility-header + .accessibility-grid {
+  max-width: 90vw;
+  width: 640px;
+  background: #f8f9fb;
+  padding: 1.5rem;
+  border-radius: 0 0 12px 12px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+[data-theme="dark"] .accessibility-menu.open .accessibility-header + .accessibility-grid {
+  background: #252936;
+}
+
+.accessibility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.accessibility-option {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  color: #1f2937;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .accessibility-option {
+  background: #2d3142;
+  border-color: #3a3f52;
+  color: #f8f9fb;
+}
+
+.accessibility-option:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .accessibility-option:hover {
+  border-color: #5b8ff9;
+  background: #3a3f52;
+}
+
+.accessibility-option:focus {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.accessibility-option[aria-pressed="true"] {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+[data-theme="dark"] .accessibility-option[aria-pressed="true"] {
+  background: #5b8ff9;
+  border-color: #5b8ff9;
+}
+
+.accessibility-option svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.accessibility-option span {
+  line-height: 1.3;
+}
+
+.accessibility-reset {
+  grid-column: 1 / -1;
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}
+
+.accessibility-reset:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.accessibility-footer {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 12px 12px;
+  text-align: center;
+  margin-top: -12px;
+}
+
+[data-theme="dark"] .accessibility-footer {
+  background: #2d3142;
+}
+
+.accessibility-statement-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.accessibility-statement-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .accessibility-statement-link {
+  color: #93c5fd;
+}
+
+/* High Contrast Mode */
+:root.access-high-contrast {
+  --bg-primary: #0b0b0b;
+  --bg-secondary: #141414;
+  --bg-muted: #1f1f1f;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #cccccc;
+  --border: #2e2e2e;
+  --primary: #ffb400;
+  --primary-hover: #ffcf52;
+  --primary-light: rgba(255, 180, 0, 0.25);
+  --secondary: #2dd4bf;
+  --secondary-hover: #5eead4;
+  --secondary-light: rgba(45, 212, 191, 0.25);
+  --success: #22d3ee;
+  --success-light: rgba(34, 211, 238, 0.25);
+  --error: #f97316;
+  --error-light: rgba(249, 115, 22, 0.25);
+  --shadow: rgba(0, 0, 0, 0.8);
+  --shadow-md: rgba(0, 0, 0, 0.85);
+}
+
+/* Link Highlighting */
+body.access-highlight-links a,
+body.access-highlight-links a:visited {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  text-decoration: underline;
+  background: var(--primary-light);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+body.access-highlight-links a:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .accessibility-menu.open .accessibility-header + .accessibility-grid {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .accessibility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accessibility-widget {
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .accessibility-toggle {
+    width: 48px;
+    height: 48px;
+  }
+}
