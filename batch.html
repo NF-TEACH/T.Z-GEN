@@ -59,12 +59,14 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <label class="form-label">כמה רצפים ליצור?</label>
+                        <!-- Added for attribute to connect label with input field -->
+                        <label for="batchCount" class="form-label">כמה רצפים ליצור?</label>
                         <div class="input-group">
-                            <input type="number" id="batchCount" class="form-input center" value="50" min="1" max="1000">
+                            <input type="number" id="batchCount" class="form-input center" value="50" min="1" max="1000" aria-describedby="batchHelp">
                             <button id="batchGenerateBtn" class="btn btn-primary btn-lg">צור רשימה</button>
                         </div>
-                        <p class="form-help">מקסימום 1000 רצפים</p>
+                        <!-- Added id for aria-describedby connection -->
+                        <p id="batchHelp" class="form-help">מקסימום 1000 רצפים</p>
                     </div>
                 </div>
 
@@ -85,6 +87,8 @@
                         <a href="batch.html">מחולל קבוצתי</a>
                         <a href="algorithm.html">האלגוריתם</a>
                         <a href="about.html">אודות</a>
+                        <!-- Added accessibility statement link -->
+                        <a href="accessibility-statement.html">הצהרת נגישות</a>
                     </div>
                 </div>
                 <div class="footer-bottom">

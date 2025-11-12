@@ -57,12 +57,14 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <label class="form-label">הזינו מספר תעודת זהות (9 ספרות)</label>
+                        <!-- Added for attribute to connect label with input field -->
+                        <label for="validatorInput" class="form-label">הזינו מספר תעודת זהות (9 ספרות)</label>
                         <div class="input-group">
-                            <input type="text" id="validatorInput" class="form-input mono center" placeholder="לדוגמה: 123456782" maxlength="9" dir="ltr">
+                            <input type="text" id="validatorInput" class="form-input mono center" placeholder="לדוגמה: 123456782" maxlength="9" dir="ltr" aria-describedby="validatorHelp">
                             <button id="validateBtn" class="btn btn-primary btn-lg">בדוק</button>
                         </div>
-                        <p class="form-help">יש להזין בדיוק 9 ספרות (כולל ספרת הביקורת)</p>
+                        <!-- Added id for aria-describedby connection -->
+                        <p id="validatorHelp" class="form-help">יש להזין בדיוק 9 ספרות (כולל ספרת הביקורת)</p>
                     </div>
                 </div>
 
@@ -83,6 +85,8 @@
                         <a href="batch.html">מחולל קבוצתי</a>
                         <a href="algorithm.html">האלגוריתם</a>
                         <a href="about.html">אודות</a>
+                        <!-- Added accessibility statement link -->
+                        <a href="accessibility-statement.html">הצהרת נגישות</a>
                     </div>
                 </div>
                 <div class="footer-bottom">
